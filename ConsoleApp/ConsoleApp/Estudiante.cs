@@ -27,12 +27,20 @@ namespace ConsoleApp
 
 
         //Metodo para mostrar la información del estudiante
-        public void MostrarInformacionEstudiante()
+    
+        public override void MostrarInformacion()
         {
-            base.MostrarInformacion();
-            Console.WriteLine($"Carrera: {Carrera}, Matrícula: {Matricula}");
+            Console.WriteLine($"Nombre: {Nombre}, Edad: {Edad}, Ciudad: {Ciudad}, Carrera: {Carrera}, Matrícula: {Matricula}");
         }
 
-      
+
+        // Metodo para calcular la Edad de un estudiante
+        public override int CalcularEdad(DateTime FechaNacimiento)
+        {
+            var year = DateTime.Now.Year;
+            var edad = year - FechaNacimiento.Year;
+
+            return edad;
+        }
     }
 }

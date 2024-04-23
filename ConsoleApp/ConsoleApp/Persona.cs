@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
-    public class Persona
+    public abstract class Persona
     {
 
         //Atributos
@@ -15,6 +15,7 @@ namespace ConsoleApp
         public int Edad { get; set; }
 
         public string? Ciudad { get; set; }
+
 
         //Constructor clase persona
         public Persona( string _nombre, int _edad, string _ciudad) 
@@ -26,19 +27,14 @@ namespace ConsoleApp
 
 
         // Método para mostrar la información de la persona
-        public void MostrarInformacion()
-        {
-            Console.WriteLine($"Nombre: {Nombre}, Edad: {Edad}, Ciudad: {Ciudad}");
-        }
+        public abstract void MostrarInformacion();
+        
+        
 
         // Metodo para calcular la edad en años
-        public int CalcularEdadEnAnnos()
-        {
-            var year = DateTime.Now.Year;
-            var result = year - Edad;
-
-            return result;
-        }
+        public abstract int CalcularEdad(DateTime FechaNacimiento);
+        
+        
 
     }
 }

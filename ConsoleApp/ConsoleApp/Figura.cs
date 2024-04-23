@@ -26,9 +26,9 @@ namespace ConsoleApp
         // Metodo para calcular el area de un Rectangulo
         public override double CalcularArea()
         {
-            var result = Base * Altura;
+            var area = Base * Altura;
             
-            return result;
+            return area;
         }
 
     }
@@ -43,9 +43,9 @@ namespace ConsoleApp
         // Metodo para calcular el area de un Circulo
         public override double CalcularArea()
         {
-            var result = Math.PI * Math.Pow(Radio, 2);
-
-            return result;
+            var area = Math.PI * Math.Pow(Radio, 2);
+            var areaRedondeada = Math.Round(area, 2);
+            return areaRedondeada;
         }
     }
 
@@ -62,9 +62,9 @@ namespace ConsoleApp
         // Metodo para calcular el area de un Triangulo
         public override double CalcularArea()
         {
-            var result = (Base * Altura) / 2;
+            var area = (Base * Altura) / 2;
 
-            return result;
+            return area;
         }
     }
 }
