@@ -1,4 +1,5 @@
 ﻿using BoletosBus.Domain.Core;
+using BoletosBus.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

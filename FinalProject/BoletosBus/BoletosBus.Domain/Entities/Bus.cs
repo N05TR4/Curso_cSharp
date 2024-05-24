@@ -1,6 +1,5 @@
 ﻿using BoletosBus.Domain.Core;
-
-
+using BoletosBus.Domain.Interfaces;
 
 namespace BoletosBus.Domain.Entities
 {
