@@ -12,18 +12,14 @@ namespace BoletosBus.Infraestructure.Context
             
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Asiento>().ToTable("", "");
-            modelBuilder.Entity<Bus>().ToTable("", "");
-            modelBuilder.Entity<Reserva>().ToTable("", "");
-            modelBuilder.Entity<ReservaDetalle>().ToTable("", "");
-            modelBuilder.Entity<Ruta>().ToTable("", "");
-            modelBuilder.Entity<Viaje>().ToTable("", "");
+        DbSet<Asiento> Asiento { get; set; }
+        DbSet<Bus> Bus { get; set; }
+        DbSet<Reserva> Reserva { get; set; }
+        DbSet<ReservaDetalle> ReservaDetalle { get; set; }
+        DbSet<Ruta> Ruta { get; set; }
+        DbSet<Usuario> Usuario { get; set; }
+        DbSet<Viaje> Viaje { get; set; }
 
-            base.OnModelCreating(modelBuilder);
-        }
 
-        
     }
 }

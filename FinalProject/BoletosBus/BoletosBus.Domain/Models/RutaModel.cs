@@ -1,9 +1,8 @@
-﻿using BoletosBus.Domain.Core;
+﻿
 
-
-namespace BoletosBus.Domain.Entities
+namespace BoletosBus.Domain.Models
 {
-    public sealed class Ruta : BaseEntity
+    public sealed class RutaModel
     {
         public int IdRuta { get; set; }
         public string Origen { get; set; }

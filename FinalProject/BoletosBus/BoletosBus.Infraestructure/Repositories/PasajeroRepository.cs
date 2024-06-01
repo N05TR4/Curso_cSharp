@@ -1,5 +1,7 @@
 ﻿
 
+
+
 using BoletosBus.Domain.Entities;
 using BoletosBus.Domain.Interfaces;
 using BoletosBus.Infraestructure.Context;
@@ -8,51 +10,48 @@ using System.Linq.Expressions;
 
 namespace BoletosBus.Infraestructure.Repositories
 {
-    public class ViajeRepository : IViaje
+    public class PasajeroRepository : IPasajero
     {
+
         private readonly BoletosBusDbContext _dbContext;
 
-        public ViajeRepository(BoletosBusDbContext dbContext)
-        {
-            _dbContext = dbContext;
-            
-        }
+        public PasajeroRepository(DbContext dbContext) { }
 
-        public Task<List<ViajeModel>> GetAll(Expression<Func<ViajeModel, bool>> filter)
+
+
+        public Task<Pasajero> Delete(int Id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ViajeModel> GetById(int idViaje)
+        public Task<List<Pasajero>> GetAll(Expression<Func<Pasajero, bool>> filter)
         {
             throw new NotImplementedException();
         }
 
-        public Task Save(ViajeModel viaje)
+        public Task<Pasajero> GetById(int Id)
         {
             throw new NotImplementedException();
         }
 
-        public Task Save(List<ViajeModel> Viajes)
+        public Task Save(Pasajero entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task Update(ViajeModel viaje)
+        public Task Save(List<Pasajero> entities)
         {
             throw new NotImplementedException();
         }
 
-        public Task Update(List<ViajeModel> Viajes)
+        public Task Update(Pasajero entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ViajeModel> Delete(int idViaje)
+        public Task Update(List<Pasajero> entities)
         {
             throw new NotImplementedException();
         }
-
-       
     }
 }

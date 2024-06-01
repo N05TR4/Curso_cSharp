@@ -1,9 +1,8 @@
-﻿using BoletosBus.Domain.Core;
+﻿
 
-
-namespace BoletosBus.Domain.Entities
+namespace BoletosBus.Domain.Models
 {
-    public sealed class Viaje : BaseEntity
+    public sealed class ViajeModel 
     {
         public int IdViaje { get; set; }
         public int IdBus { get; set; }
@@ -17,5 +16,7 @@ namespace BoletosBus.Domain.Entities
         public int AsientosReservados { get; set; }
         public int AsientoDisponibles => TotalAsientos - AsientosReservados;
         public bool Completo => AsientoDisponibles < 1;
+        public string? Bus {  get; set; }
+        public string? Ruta { get; set;}
     }
 }

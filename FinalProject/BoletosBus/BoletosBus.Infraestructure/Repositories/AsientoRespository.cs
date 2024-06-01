@@ -2,8 +2,7 @@
 using BoletosBus.Domain.Interfaces;
 using BoletosBus.Infraestructure.Context;
 using Microsoft.EntityFrameworkCore;
-
-
+using System.Linq.Expressions;
 
 namespace BoletosBus.Infraestructure.Repositories
 {
@@ -11,15 +10,19 @@ namespace BoletosBus.Infraestructure.Repositories
     {
         private readonly BoletosBusDbContext _dbContext;
 
-        public AsientoRespository(DbContext dbContext){}
+        public AsientoRespository(BoletosBusDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
 
-        public Task<List<Asiento>> GetAll()
+
+        public Task<List<Asiento>> GetAll(Expression<Func<Asiento, bool>> filter)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Asiento> GetById(int idAsiento)
+        public async Task<Asiento> GetById(int idAsiento)
         {
             throw new NotImplementedException();
         }
@@ -46,6 +49,11 @@ namespace BoletosBus.Infraestructure.Repositories
         }
 
         public Task<Asiento> Delete(int idAsiento)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Asiento> GetAllAsientoByBus(Bus IdBus)
         {
             throw new NotImplementedException();
         }

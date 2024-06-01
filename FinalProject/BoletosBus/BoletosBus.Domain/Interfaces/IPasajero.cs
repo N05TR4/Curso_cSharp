@@ -1,11 +1,9 @@
 ﻿using BoletosBus.Domain.Core;
 using BoletosBus.Domain.Entities;
 
-
 namespace BoletosBus.Domain.Interfaces
 {
-    public interface IBus : IBaseRepository<Bus>
+    public interface IPasajero : IBaseRepository<Pasajero>
     {
-        
     }
 }

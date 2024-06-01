@@ -4,6 +4,7 @@ using BoletosBus.Domain.Entities;
 using BoletosBus.Domain.Interfaces;
 using BoletosBus.Infraestructure.Context;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace BoletosBus.Infraestructure.Repositories
 {
@@ -14,8 +15,8 @@ namespace BoletosBus.Infraestructure.Repositories
 
         public ReservaDetalleRepository(DbContext dbContext) { }
 
- 
-        public Task<List<ReservaDetalle>> GetAll()
+
+        public Task<List<ReservaDetalle>> GetAll(Expression<Func<ReservaDetalle, bool>> filter)
         {
             throw new NotImplementedException();
         }
@@ -49,5 +50,7 @@ namespace BoletosBus.Infraestructure.Repositories
         {
             throw new NotImplementedException();
         }
+
+      
     }
 }

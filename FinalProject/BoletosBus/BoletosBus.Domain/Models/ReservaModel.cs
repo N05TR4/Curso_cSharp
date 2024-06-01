@@ -1,9 +1,7 @@
-﻿using BoletosBus.Domain.Core;
-
-
-namespace BoletosBus.Domain.Entities
+﻿
+namespace BoletosBus.Domain.Models
 {
-    public sealed class Reserva : BaseEntity
+    public class ReservaModel
     {
         public int IdReserva { get; set; }
         public int IdViaje { get; set; }

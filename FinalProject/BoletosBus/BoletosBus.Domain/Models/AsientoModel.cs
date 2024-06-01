@@ -1,16 +1,13 @@
-﻿using BoletosBus.Domain.Core;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿
 
-namespace BoletosBus.Domain.Entities
+namespace BoletosBus.Domain.Models
 {
-
-    
-    public sealed class Asiento : BaseEntity
+    public class AsientoModel
     {
-        
         public int IdAsiento { get; set; }
         public int IdBus { get; set; }
         public int NumeroPiso { get; set; }
         public int NumeroAsiento { get; set; }
+        public string? NombreBus { get; set; }
     }
 }
