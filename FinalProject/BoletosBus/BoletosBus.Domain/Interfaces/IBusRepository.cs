@@ -4,7 +4,7 @@ using BoletosBus.Domain.Entities;
 
 namespace BoletosBus.Domain.Interfaces
 {
-    public interface IBus : IBaseRepository<Bus>
+    public interface IBusRepository : IBaseRepository<Bus>
     {
         
     }

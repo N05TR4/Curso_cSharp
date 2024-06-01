@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace BoletosBus.Infraestructure.Repositories
 {
-    public class BusRepository : IBus
+    public class BusRepository : IBusRepository
     {
         private readonly BoletosBusDbContext _dbContext;
 

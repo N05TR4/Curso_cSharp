@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace BoletosBus.Infraestructure.Repositories
 {
-    public class ReservaDetalleRepository : IReservaDetalle
+    public class ReservaDetalleRepository : IReservaDetalleRepository
     {
         private readonly BoletosBusDbContext _dbContext;
 

@@ -5,7 +5,7 @@ using BoletosBus.Domain.Entities;
 
 namespace BoletosBus.Domain.Interfaces
 {
-    public interface IViaje : IBaseRepository<Viaje>
+    public interface IRutaRepository : IBaseRepository<Ruta>
     {
         
     }

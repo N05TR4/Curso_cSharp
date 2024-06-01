@@ -1,12 +1,13 @@
 ﻿
 
+
 using BoletosBus.Domain.Core;
 using BoletosBus.Domain.Entities;
 
 namespace BoletosBus.Domain.Interfaces
 {
-    public interface IRuta : IBaseRepository<Ruta>
+    public interface IReservaRepository : IBaseRepository<Reserva>
     {
-        
+       
     }
 }

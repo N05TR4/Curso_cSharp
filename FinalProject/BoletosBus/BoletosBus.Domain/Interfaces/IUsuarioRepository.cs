@@ -5,7 +5,7 @@ using BoletosBus.Domain.Entities;
 
 namespace BoletosBus.Domain.Interfaces
 {
-    public interface IUsuario : IBaseRepository<Usuario>
+    public interface IUsuarioRepository : IBaseRepository<Usuario>
     {
         
     }

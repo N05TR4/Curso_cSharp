@@ -3,7 +3,7 @@ using BoletosBus.Domain.Entities;
 
 namespace BoletosBus.Domain.Interfaces
 {
-    public interface IReservaDetalle : IBaseRepository<ReservaDetalle>
+    public interface IReservaDetalleRepository : IBaseRepository<ReservaDetalle>
     {
        
     }
