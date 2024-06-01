@@ -1,24 +1,27 @@
-﻿
-
-using BoletosBus.Domain.Entities;
+﻿using BoletosBus.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace BoletosBus.Infraestructure.Context
 {
-    public class BoletosBusDbContext : DbContext
+    public partial class BoletosBusDbContext : DbContext
     {
         public BoletosBusDbContext(DbContextOptions<BoletosBusDbContext> dbContext) : base(dbContext)
         {
             
         }
 
-        DbSet<Asiento> Asiento { get; set; }
-        DbSet<Bus> Bus { get; set; }
-        DbSet<Reserva> Reserva { get; set; }
-        DbSet<ReservaDetalle> ReservaDetalle { get; set; }
-        DbSet<Ruta> Ruta { get; set; }
-        DbSet<Usuario> Usuario { get; set; }
-        DbSet<Viaje> Viaje { get; set; }
+        public DbSet<Asiento> Asiento { get; set; }
+        public DbSet<Bus> Bus { get; set; }
+        public DbSet<Reserva> Reserva { get; set; }
+        public DbSet<ReservaDetalle> ReservaDetalle { get; set; }
+        public DbSet<Ruta> Ruta { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Viaje> Viaje { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
 
 
     }
