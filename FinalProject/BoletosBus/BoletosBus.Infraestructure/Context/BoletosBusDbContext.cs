@@ -18,6 +18,7 @@ namespace BoletosBus.Infraestructure.Context
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Viaje> Viaje { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
