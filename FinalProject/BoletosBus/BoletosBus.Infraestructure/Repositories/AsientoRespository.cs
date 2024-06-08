@@ -3,8 +3,8 @@ using BoletosBus.Domain.Interfaces;
 using BoletosBus.Domain.Models;
 using BoletosBus.Infraestructure.Context;
 using BoletosBus.Infraestructure.Core;
-using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
+using BoletosBus.Infraestructure.Extensions;
+
 
 namespace BoletosBus.Infraestructure.Repositories
 {
@@ -14,14 +14,27 @@ namespace BoletosBus.Infraestructure.Repositories
 
         public AsientoRespository(BoletosBusDbContext Context) : base(Context)
         {
-            _dbContext = Context;
+           this._dbContext = Context;
         }
 
-        
-
-        List<AsientoModel> IAsientoRepository.GetAllAsientoByBus(Bus IdBus)
+        public AsientoModel GetAsiento(int idAsiento)
         {
-            throw new NotImplementedException();
+            var asientoModel =this._dbContext.Asiento.Find(idAsiento)
+                                            .ConvertAsientoEntityToAsientoModel();
+            return asientoModel;
         }
+
+        public List<AsientoReservaModel> GetAsientoReserva()
+        {
+            var asientos = (from a in this._dbContext.Asiento
+                               join r in this._dbContext.Reserva on a.IdAsiento equals r.IdReserva
+                               select new AsientoReservaModel() 
+                               {
+
+                               }
+                            ).ToList();
+
+            return asientos;
+        }           
     }
 }

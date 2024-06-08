@@ -11,49 +11,15 @@ namespace BoletosBus.Infraestructure.Repositories
     {
         private readonly BoletosBusDbContext _dbContext;
 
-        public RutaRepository(DbContext dbContext) { }
-
-
-        public Task<List<RutaModel>> GetAll(Expression<Func<RutaModel, bool>> filter)
+        public RutaRepository(BoletosBusDbContext dbContext) 
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
+        
+        
         }
 
-        public Task<List<RutaModel>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<RutaModel> GetById(int idRuta)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Save(RutaModel ruta)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Save(List<RutaModel> rutas)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(RutaModel ruta)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(List<RutaModel> rutas)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<RutaModel> Delete(int idRuta)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         
     }
 }

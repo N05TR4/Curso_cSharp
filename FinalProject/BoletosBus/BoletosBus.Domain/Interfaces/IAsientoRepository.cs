@@ -8,7 +8,9 @@ namespace BoletosBus.Domain.Interfaces
 {
     public interface IAsientoRepository : IBaseRepository<Asiento>
     {
-        List<AsientoModel> GetAllAsientoByBus(Bus IdBus);
+        List<AsientoReservaModel> GetAsientoReserva();
+        AsientoModel GetAsiento(int idAsiento);
+        
 
     }
 }
