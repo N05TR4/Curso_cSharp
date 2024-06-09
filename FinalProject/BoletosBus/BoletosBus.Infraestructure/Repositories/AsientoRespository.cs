@@ -21,6 +21,7 @@ namespace BoletosBus.Infraestructure.Repositories
         {
             var asientoModel =this._dbContext.Asiento.Find(idAsiento)
                                             .ConvertAsientoEntityToAsientoModel();
+
             return asientoModel;
         }
 

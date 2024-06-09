@@ -2,55 +2,44 @@
 
 using BoletosBus.Domain.Entities;
 using BoletosBus.Domain.Interfaces;
+using BoletosBus.Domain.Models;
 using BoletosBus.Infraestructure.Context;
-using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
+using BoletosBus.Infraestructure.Core;
+using BoletosBus.Infraestructure.Extensions;
+
 
 namespace BoletosBus.Infraestructure.Repositories
 {
-    public class UsuarioRepository : IUsuarioRepository
+    public class UsuarioRepository : BaseRepository<Usuario>, IUsuarioRepository
     {
         private readonly BoletosBusDbContext _dbContext;
 
-        public UsuarioRepository(DbContext dbContext) { }
-
-
-        public Task<List<UsuarioModel>> GetAll(Expression<Func<UsuarioModel, bool>> filter)
+        public UsuarioRepository(BoletosBusDbContext dbContext) : base(dbContext) 
         {
-            throw new NotImplementedException();
+            this._dbContext = dbContext;
         }
 
-
-        public Task<UsuarioModel> GetById(int idUsuario)
+        public List<UsuarioModel> GetAllUsuario()
         {
-            throw new NotImplementedException();
+            var listusuarioModel = this._dbContext.Usuario
+                                                  .Select(usuario => new UsuarioModel
+                                                  {
+                                                      IdUsuario = usuario.IdUsuario,
+                                                      Nombre = usuario.Nombre, 
+                                                      Apellido = usuario.Apellido,
+                                                      Clave = usuario.Clave,
+                                                      TipoUsuario = usuario.TipoUsuario
+
+                                                  }).ToList();
+            return listusuarioModel;
         }
 
-        public Task Save(UsuarioModel usuario)
+        public UsuarioModel GetUsuarioById(int id)
         {
-            throw new NotImplementedException();
-        }
+            var usuarioModel = this._dbContext.Usuario.Find(id)
+                                                      .ConvertUsuarioEntityToUsuarioModel();
 
-        public Task Save(List<UsuarioModel> usuarios)
-        {
-            throw new NotImplementedException();
+            return usuarioModel;
         }
-
-        public Task Update(UsuarioModel usuario)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(List<UsuarioModel> usuarios)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<UsuarioModel> Delete(int idUsuario)
-        {
-            throw new NotImplementedException();
-        }
-
-        
     }
 }
