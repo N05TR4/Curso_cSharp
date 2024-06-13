@@ -15,7 +15,9 @@ namespace BoletosBus.Domain.Core
 
         Task<TEntity> GetById(int Id);
 
-        Task<List<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter);
+        Task<List<TEntity>> GetAll();
+
+        Task<List<TEntity>> Exist(Expression<Func<TEntity, bool>> filter);
 
         Task<TEntity> Delete(int Id);
     }

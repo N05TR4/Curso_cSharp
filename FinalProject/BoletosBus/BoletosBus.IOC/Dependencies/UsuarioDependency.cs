@@ -3,11 +3,11 @@ using BoletosBus.Domain.Interfaces;
 using BoletosBus.Infraestructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BoletosBus.IOC.Dependencie
+namespace BoletosBus.IOC.Dependencies
 {
     public static class UsuarioDependency
     {
-        public static void addUsuarioDependecy(this IServiceCollection services)
+        public static void AddUsuarioDependecy(this IServiceCollection services)
         {
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 

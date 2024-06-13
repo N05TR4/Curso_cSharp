@@ -22,6 +22,40 @@ namespace BoletosBus.Infraestructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Asiento>(entity =>
+            {
+                entity.HasKey(e => e.IdAsiento); // Definiendo la clave primaria
+            });
+
+            modelBuilder.Entity<Bus>(entity =>
+            {
+                entity.HasKey(e => e.IdBus);
+            });
+
+            modelBuilder.Entity<Reserva>(entity =>
+            {
+                entity.HasKey(e => e.IdReserva);
+            });
+
+            modelBuilder.Entity<ReservaDetalle>(entity =>
+            {
+                entity.HasKey(e => e.IdReservaDetalle);
+            });
+
+            modelBuilder.Entity<Ruta>(entity =>
+            {
+                entity.HasKey(e => e.IdRuta);
+            });
+
+            modelBuilder.Entity<Usuario>(entity =>
+            {
+                entity.HasKey(e => e.IdUsuario);
+            });
+
+            modelBuilder.Entity<Viaje>(entity =>
+            {
+                entity.HasKey(e => e.IdViaje);
+            });
         }
 
 

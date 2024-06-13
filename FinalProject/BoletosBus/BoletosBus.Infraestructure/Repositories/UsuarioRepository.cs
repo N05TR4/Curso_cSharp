@@ -25,8 +25,9 @@ namespace BoletosBus.Infraestructure.Repositories
                                                   .Select(usuario => new UsuarioModel
                                                   {
                                                       IdUsuario = usuario.IdUsuario,
-                                                      Nombre = usuario.Nombre, 
-                                                      Apellido = usuario.Apellido,
+                                                      Nombres = usuario.Nombres, 
+                                                      Apellidos = usuario.Apellidos,
+                                                      Correo = usuario.Correo,
                                                       Clave = usuario.Clave,
                                                       TipoUsuario = usuario.TipoUsuario
 

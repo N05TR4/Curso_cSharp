@@ -18,8 +18,46 @@ namespace BoletosBus.Infraestructure.Repositories
         
         }
 
+        public Task<Ruta> Delete(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Ruta>> Exist(Expression<Func<Ruta, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
 
         
-        
+
+        public Task<List<Ruta>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Ruta> GetById(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Save(Ruta entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Save(List<Ruta> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Update(Ruta entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Update(List<Ruta> entities)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

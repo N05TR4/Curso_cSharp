@@ -24,7 +24,14 @@ namespace BoletosBus.Infraestructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<Pasajero>> GetAll(Expression<Func<Pasajero, bool>> filter)
+        public Task<List<Pasajero>> Exist(Expression<Func<Pasajero, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+       
+
+        public Task<List<Pasajero>> GetAll()
         {
             throw new NotImplementedException();
         }

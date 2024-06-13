@@ -18,9 +18,14 @@ namespace BoletosBus.Infraestructure.Core
         }
 
 
-        public async Task<List<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter)
+        public async Task<List<TEntity>> GetAll()
         {
-            return await _entities.Where(filter).ToListAsync();
+            return await _entities.ToListAsync();
+        }
+
+        public async Task<List<TEntity>> Exist(Expression<Func<TEntity, bool>> filter)
+        {
+           return await this._entities.Where(filter).ToListAsync();
         }
 
         public async Task<TEntity> GetById(int Id)
@@ -66,5 +71,7 @@ namespace BoletosBus.Infraestructure.Core
             return entity;
 
         }
+
+        
     }
 }

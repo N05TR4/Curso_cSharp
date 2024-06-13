@@ -5,7 +5,7 @@ using BoletosBus.Infraestructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 
-namespace BoletosBus.IOC.Dependence
+namespace BoletosBus.IOC.Dependencies
 {
     public static class AsientoDependecy
     {

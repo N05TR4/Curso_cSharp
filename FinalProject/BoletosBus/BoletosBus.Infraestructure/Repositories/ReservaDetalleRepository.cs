@@ -16,10 +16,7 @@ namespace BoletosBus.Infraestructure.Repositories
         public ReservaDetalleRepository(DbContext dbContext) { }
 
 
-        public Task<List<ReservaDetalle>> GetAll(Expression<Func<ReservaDetalle, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public Task<ReservaDetalle> GetById(int idReservaDetalle)
         {
@@ -51,6 +48,14 @@ namespace BoletosBus.Infraestructure.Repositories
             throw new NotImplementedException();
         }
 
-      
+        public Task<List<ReservaDetalle>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<ReservaDetalle>> Exist(Expression<Func<ReservaDetalle, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
