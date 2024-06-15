@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoletosBus.Domain", "Boleto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoletosBus.Infraestructure", "BoletosBus.Infraestructure\BoletosBus.Infraestructure.csproj", "{D7F16322-2A16-4871-937B-B12AAD6B3043}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletosBus.Api", "BoletosBus.Api\BoletosBus.Api.csproj", "{47707C03-D7F8-47DD-8F02-DD276830FAEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoletosBus.Api", "BoletosBus.Api\BoletosBus.Api.csproj", "{47707C03-D7F8-47DD-8F02-DD276830FAEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletosBus.IOC", "BoletosBus.IOC\BoletosBus.IOC.csproj", "{340707DE-D8AF-4E6C-90CF-50A089D3FA81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoletosBus.IOC", "BoletosBus.IOC\BoletosBus.IOC.csproj", "{340707DE-D8AF-4E6C-90CF-50A089D3FA81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletosBus.Infraestructure.Test", "BoletosBus.Infraestructure.Test\BoletosBus.Infraestructure.Test.csproj", "{4DB97EA4-5804-42D0-9C53-534C658E5FBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{340707DE-D8AF-4E6C-90CF-50A089D3FA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{340707DE-D8AF-4E6C-90CF-50A089D3FA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{340707DE-D8AF-4E6C-90CF-50A089D3FA81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DB97EA4-5804-42D0-9C53-534C658E5FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DB97EA4-5804-42D0-9C53-534C658E5FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DB97EA4-5804-42D0-9C53-534C658E5FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DB97EA4-5804-42D0-9C53-534C658E5FBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

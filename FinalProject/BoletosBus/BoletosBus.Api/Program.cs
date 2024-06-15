@@ -33,6 +33,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
+    // Controlando los errores y excepciones
     app.UseMiddleware<GlobalExceptionsMiddleware>();
 }
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BoletosBus.Api.Models.Usuario;
 using BoletosBus.Api.Extension.UsuarioExtension;
+using BoletosBus.Infraestructure.Exceptions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,8 +25,18 @@ namespace BoletosBus.Api.Controllers
         [HttpGet("GetAllUsuario")]
         public IActionResult GetAllUsuario()
         {
-            var usuario = this._usuarioRepository.GetAllUsuario();
-            return Ok(usuario);
+            try
+            {
+                var usuario = this._usuarioRepository.GetAllUsuario();
+                return Ok(usuario);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while retrieving data.", details = ex.Message });
+            }
+
+            
+            
         }
 
 
@@ -35,36 +46,114 @@ namespace BoletosBus.Api.Controllers
         [HttpGet("GetUsuarioById/{id}")]
         public async Task<IActionResult> GetUsuarioById(int id)
         {
-            var usuario = await this._usuarioRepository.GetById(id);
+            try
+            {
+                var usuario = await this._usuarioRepository.GetById(id);
+                if (usuario is null)
+                {
+                    return NotFound(new { message = "Bus not found." });
+                }
+                return Ok(usuario);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while retrieving data.", details = ex.Message });
+            }
 
-            return Ok(usuario);
+            
+
+            
         }
 
         // POST api/<UsuarioController>
         [HttpPost("CreateNewUsuario")]
-        public async Task<IActionResult> CreateNewUsuario([FromBody] List<UsuarioSaveModel> value)
+        public async Task<IActionResult> CreateNewUsuario([FromBody] UsuarioSaveModel value)
         {
-           var usuarios = value.Select(v => v.ToUsuario()).ToList();
-            await this._usuarioRepository.Save(usuarios);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            return Ok();
+            try
+            {
+                var usuarios = value.ToUsuario();
+                await this._usuarioRepository.Save(usuarios);
+
+                return Ok();
+
+            }
+            catch (UsuarioException ex)
+            {
+
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex) 
+            {
+                return StatusCode(500, new { message = "An error occurred while creating the bus.", details = ex.Message });
+            }
+
+            
         }
 
         // PUT api/<UsuarioController>/5
         [HttpPut("EditUsuario/{id}")]
         public async Task<IActionResult> EditUsuario(int id, [FromBody] UsuarioUpdateModel value)
         {
-            var usuario = value.ToUsuario();
-            await this._usuarioRepository.Update(usuario);
-            return Ok();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var existingUsuario = await this._usuarioRepository.GetById(id);
+                if (existingUsuario is null)
+                {
+                    return NotFound(new { message = "User not found." });
+                }
+
+                var usuario = value.ToUsuario();
+                await this._usuarioRepository.Update(usuario);
+                return Ok();
+            }
+            catch (UsuarioException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, new { message = "An error occurred while updating the bus.", details = ex.Message });
+            }
+
+            
         }
 
         // DELETE api/<UsuarioController>/5
         [HttpDelete("DeleteUsuario/{id}")]
         public async Task<IActionResult> DeleteUsuario(int id)
         {
-            await this._usuarioRepository.Delete(id);
-            return Ok("Usuario Eliminado");
+            try
+            {
+                var existingUsuario = await this._usuarioRepository.GetById(id);
+                if (existingUsuario is null)
+                {
+                    return NotFound(new { message = "User not found." });
+                }
+
+                await this._usuarioRepository.Delete(id);
+                return Ok("Usuario Eliminado");
+            }
+            catch (UsuarioException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, new { message = "An error occurred while updating the bus.", details = ex.Message });
+            }
+
         }
     }
 }
