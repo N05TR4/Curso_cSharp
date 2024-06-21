@@ -20,7 +20,7 @@ namespace BoletosBus.Infraestructure.Repositories.Mock
                       Apellidos = "apellido 1",
                       Correo = "usuario1@example.com",
                       Clave = "clave1",
-                      TipoUsuario = "admin"
+                      TipoUsuario = "Admin"
                   },
 
                   new Usuario
@@ -30,7 +30,7 @@ namespace BoletosBus.Infraestructure.Repositories.Mock
                         Apellidos = "apellido 2",
                         Correo = "usuario2@example.com",
                         Clave = "clave2",
-                        TipoUsuario = "user"
+                        TipoUsuario = "Pasajero"
                   }
               };
         }
@@ -64,6 +64,22 @@ namespace BoletosBus.Infraestructure.Repositories.Mock
             }).ToList();
         }
 
+        public Task<List<UsuarioModel>> GetAllUsuarioByTipoUsuario(string tipoUsuario)
+        {
+            var usuario = _usuarios.Where(u => u.TipoUsuario == tipoUsuario)
+                                    .Select(u => new UsuarioModel
+                                    {
+                                        IdUsuario = u.IdUsuario,
+                                        Nombres = u.Nombres,
+                                        Apellidos = u.Apellidos,
+                                        Correo = u.Correo,
+                                        Clave = u.Clave,
+                                        TipoUsuario = u.TipoUsuario
+                                    }).ToList();
+
+            return Task.FromResult(usuario);
+        }
+
         public Task<Usuario> GetById(int Id)
         {
             throw new NotImplementedException();
@@ -74,7 +90,7 @@ namespace BoletosBus.Infraestructure.Repositories.Mock
             var usuario = _usuarios.FirstOrDefault(u => u.IdUsuario == id);
             if (usuario == null)
             {
-                return null;
+                throw new KeyNotFoundException("Usuario no encontrado");
             }
             return new UsuarioModel
             {

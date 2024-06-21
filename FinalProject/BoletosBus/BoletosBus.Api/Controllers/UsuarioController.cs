@@ -51,7 +51,7 @@ namespace BoletosBus.Api.Controllers
                 var usuario = await this._usuarioRepository.GetById(id);
                 if (usuario is null)
                 {
-                    return NotFound(new { message = "Bus not found." });
+                    return NotFound(new { message = "User not found." });
                 }
                 return Ok(usuario);
             }
@@ -63,6 +63,27 @@ namespace BoletosBus.Api.Controllers
             
 
             
+        }
+
+        [HttpGet("GetAllusuarioByTipoUsuario")]
+        public async Task<IActionResult> GetAllusuarioByTipoUsuario(string tipoUsuario)
+        {
+            try
+            {
+
+                var usuario = await this._usuarioRepository.GetAllUsuarioByTipoUsuario(tipoUsuario);
+
+                if (usuario is null)
+                {
+                    return NotFound(new { message = "User not found." });
+                }
+                return Ok(usuario);
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, new { message = "An error occurred while retrieving data.", details = ex.Message });
+            }
         }
 
         // POST api/<UsuarioController>

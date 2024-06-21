@@ -7,7 +7,6 @@ using BoletosBus.Infraestructure.Context;
 using BoletosBus.Infraestructure.Core;
 using BoletosBus.Infraestructure.Extensions;
 
-
 namespace BoletosBus.Infraestructure.Repositories
 {
     public class UsuarioRepository : BaseRepository<Usuario>, IUsuarioRepository
@@ -33,6 +32,25 @@ namespace BoletosBus.Infraestructure.Repositories
 
                                                   }).ToList();
             return listusuarioModel;
+        }
+
+        public Task<List<UsuarioModel>> GetAllUsuarioByTipoUsuario(string tipoUsuario)
+        {
+            var usuarioModel = this._dbContext.Usuario
+                                              .Where(u => u.TipoUsuario == tipoUsuario)
+                                              .Select(usuario => new UsuarioModel
+                                              {
+                                                  IdUsuario = usuario.IdUsuario,
+                                                  Nombres = usuario.Nombres,
+                                                  Apellidos = usuario.Apellidos,
+                                                  Correo = usuario.Correo,
+                                                  Clave = usuario.Clave,
+                                                  TipoUsuario = usuario.TipoUsuario
+
+                                              }).ToList();
+
+
+            return Task.FromResult(usuarioModel);
         }
 
         public UsuarioModel GetUsuarioById(int id)

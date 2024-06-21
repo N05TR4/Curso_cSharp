@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoletosBus.Api", "BoletosBu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoletosBus.IOC", "BoletosBus.IOC\BoletosBus.IOC.csproj", "{340707DE-D8AF-4E6C-90CF-50A089D3FA81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletosBus.Infraestructure.Test", "BoletosBus.Infraestructure.Test\BoletosBus.Infraestructure.Test.csproj", "{4DB97EA4-5804-42D0-9C53-534C658E5FBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoletosBus.Infraestructure.Test", "BoletosBus.Infraestructure.Test\BoletosBus.Infraestructure.Test.csproj", "{4DB97EA4-5804-42D0-9C53-534C658E5FBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

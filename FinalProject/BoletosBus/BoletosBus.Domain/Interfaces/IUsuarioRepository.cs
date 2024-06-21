@@ -10,5 +10,6 @@ namespace BoletosBus.Domain.Interfaces
     {
         List<UsuarioModel> GetAllUsuario();
         UsuarioModel  GetUsuarioById(int id);
+        Task<List<UsuarioModel>> GetAllUsuarioByTipoUsuario(string tipoUsuario);
     }
 }
