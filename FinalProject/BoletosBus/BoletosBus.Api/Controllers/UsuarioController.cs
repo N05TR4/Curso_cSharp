@@ -65,8 +65,8 @@ namespace BoletosBus.Api.Controllers
             
         }
 
-        [HttpGet("GetAllusuarioByTipoUsuario")]
-        public async Task<IActionResult> GetAllusuarioByTipoUsuario(string tipoUsuario)
+        [HttpGet("GetAllUsuarioByTipoUsuario")]
+        public async Task<IActionResult> GetAllUsuarioByTipoUsuario(string tipoUsuario)
         {
             try
             {
